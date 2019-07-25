@@ -54,6 +54,7 @@ export default class App extends Component {
             returnKeyType={"done"}
             autoCorrect={false}
             onSubmitEditing={this._addToDo}
+            underlineColorAndroid={"transparent"}
           />
           <ScrollView contentContainerStyle={styles.toDos}>
             {Object.values(toDos)
@@ -84,7 +85,7 @@ export default class App extends Component {
       const parsedToDos = JSON.parse(toDos)
       this.setState({
         loadedToDos: true,
-        toDos: parsedToDos
+        toDos: parsedToDos || {}
       })
     } catch (err) {
       console.log(err)
